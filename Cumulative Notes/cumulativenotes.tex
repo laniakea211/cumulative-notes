@@ -1,0 +1,302 @@
+\documentclass[
+	10pt,
+	a4paper,
+	oneside
+]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{headings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Packages 
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[
+	marginparwidth=2in,
+	marginparsep=20pt,
+	rmargin=3in
+]{geometry}
+
+\usepackage{imakeidx}
+
+\makeindex
+
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+
+\usepackage{braket}
+
+\usepackage{hyperref}
+
+\usepackage{theoremref}
+
+\usepackage{framed} % Lets us shade
+
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs} % Only number referenced eq's
+
+\usepackage{enumerate}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usetikzlibrary{decorations.pathmorphing,patterns}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes}
+
+\usepackage{pgfkeys}
+
+\usepackage{subcaption}
+
+\usepackage{xcolor}
+
+\usepackage{array}
+
+\usepackage{cancel}
+
+%\usepackage{logicproof}
+
+\usepackage{sidenotes}
+
+\usepackage{glossaries-extra}[symbols]
+
+\usepackage{listings}
+
+\usepackage{venndiagram}
+
+\usepackage{graphicx}
+\graphicspath{ {/home/tree/Pictures} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\author{Tree}
+\title{Cumulative Notes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% New commands
+
+% \nc as new command
+\newcommand{\nc}{\newcommand}
+\nc{\renc}{\renewcommand}
+
+% \df as emphasized (for definitions)
+\nc\df[1]{\textit{\textbf{#1}}}
+
+% Common sets
+\nc\integers{\mathbb{Z}}
+\nc\zplus{{\mathbb{Z}^+}}
+\nc\zminus{{\mathbb{Z}^-}}
+\nc\zsubn{{\mathbb{Z}_n}}
+\nc\naturals{\mathbb{N}}
+\nc\alephnought{{\aleph_0}}
+\nc\reals{\mathbb{R}}
+\nc\rplus{{\mathbb{R}^+}}
+\nc\rationals{\mathbb{Q}}
+\nc\complex{\mathbb{C}}
+
+% Matrices
+\nc\mmn{\mathcal{M}_{m,n}}
+\nc\mn{\mathcal{M}_{n}}
+\nc\bij{B_{i,j}}
+\nc\bji{B_{j,i}}
+\nc\aij{A_{i,j}}
+\nc\aji{A_{j,i}}
+
+% Functions
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator\im{im}
+\DeclareMathOperator\supp{supp}
+\DeclareMathOperator\lub{lub}
+\DeclareMathOperator\glb{glb}
+\DeclareMathOperator\lcm{lcm}
+\DeclareMathOperator\card{card}
+\DeclareMathOperator\chara{char}
+\DeclareMathOperator\domain{domain}
+\DeclareMathOperator\image{image}
+\DeclareMathOperator\range{range}
+\DeclareMathOperator\Int{Int}
+\DeclareMathOperator\Cl{Cl}
+
+\nc\sumiotoinf{\sum_{i=1}^\infty}
+\nc\sumiztoinf{\sum_{i=0}^\infty}
+\nc\summotoinf{\sum_{m=1}^\infty}
+\nc\summztoinf{\sum_{m=0}^\infty}
+
+\nc\divides{\mid}
+\nc\notdivides{\nmid}
+
+\nc\kron{\delta_{ij}}
+
+\nc\ra{\rightarrow}
+\nc\Ra{\Rightarrow}
+\nc\lra{\leftrightarrow}
+
+% Truth functions
+\nc\Hand{H_\land}
+\nc\Hor{H_\vee}
+\nc\Hra{H_\ra}
+\nc\Hlra{H_\lra}
+\nc\Hneg{H_\neg}
+
+% Roman numerals
+\makeatletter
+\nc{\Rn}[1]{\textup{\uppercase\expandafter{\romannumeral#1}}}
+\nc{\rn}[1]{\romannumeral #1}
+\makeatother
+
+% Physics stuff
+\nc\mc[1]{\mathcal{#1}}
+\nc\ms[1]{\mathscr{#1}}
+\nc\bt[1]{\textbf{#1}}
+\nc\eqcl[1]{\bt{#1}^\circ}
+\nc\V{\ket{V}}
+\nc\W{\ket{W}}
+\nc\vecsp{\mathbb{V}}
+\nc\Axa{\bt{A}_\bt{x}[\bt{a}]}
+\nc\Axi{\bt{A}_\bt{x}[\bt{i}]}
+\nc\Bxa{\bt{B}_\bt{x}[\bt{a}]}
+\nc\Bxi{\bt{B}_\bt{x}[\bt{i}]}
+\nc\bxa{\bt{b}_\bt{x}[\bt{a}]}
+\nc\nms[1]{#1_1, \dots, #1_n}
+\nc\nbts[1]{\bt{#1}_1, \dots, \bt{#1}_n}
+
+% Logic
+\nc\propax{\neg \bt{A} \vee \bt{A}}
+\nc\subax{\bt{A}_\bt{x} [\bt{a}] \ra \exists \bt{x} \bt{A}}
+\nc\idax{\bt{x} = \bt{x}}
+\nc\eqax{\bt{x}_1 = \bt{y}_1 \ra \cdots \ra \bt{x}_n = \bt{y}_n 
+	\ra \bt{f} \bt{x}_1 \dots \bt{x}_n = \bt{f} \bt{y}_1 \dots 
+	\bt{y}_n}
+\nc\eqpredax{\bt{x}_1 = \bt{y}_1 \ra \cdots \ra \bt{x}_n = 
+	\bt{y}_n \ra \bt{p} \bt{x}_1 \dots \bt{x}_n = \bt{p} \bt{y}_1 
+	\dots 
+	\bt{y}_n}
+\nc\existsx{\exists \bt{x}}
+\nc\existsy{\exists \bt{y}}
+\nc\forallx{\forall \bt{x}}
+\nc\forally{\forall \bt{y}}
+\nc\beis{\bt{e}_1, \dots, \bt{e}_n}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Theorem styles
+\theoremstyle{plain}% default
+\newtheorem{prototheorem}{Theorem}[section]
+
+\newenvironment{theorem}
+{\colorlet{shadecolor}{orange!15}\begin{shaded}\begin{prototheorem}}
+		{\end{prototheorem}\end{shaded}}
+
+\newtheorem{protolemma}[prototheorem]{Lemma}
+\newenvironment{lemma}
+{\colorlet{shadecolor}{blue!15}\begin{shaded}\begin{protolemma}}
+		{\end{protolemma}\end{shaded}}
+
+\newtheorem{protocorollary}[prototheorem]{Corollary}
+\newenvironment{corollary}
+{\colorlet{shadecolor}{pink!15}\begin{shaded}\begin{protocorollary}}
+		{\end{protocorollary}\end{shaded}}
+
+\theoremstyle{definition}
+\newtheorem{protoremark}{Remark}[section]
+\newenvironment{remark}
+{\colorlet{shadecolor}{green!15}\begin{shaded}\begin{protoremark}}
+		{\end{protoremark}\end{shaded}}
+
+\newtheorem{protoexample}{Example}[subsection]
+\newenvironment{example}
+{\colorlet{shadecolor}{red!15}\begin{shaded}\begin{protoexample}}
+		{\end{protoexample}\end{shaded}}
+
+\newtheorem{protoexercise}{Exercise}[subsection]
+\newenvironment{exercise}
+{\colorlet{shadecolor}{cyan!15}\begin{shaded}\begin{protoexercise}}
+		{\end{protoexercise}\end{shaded}}
+
+\newtheorem{protodefinition}{Definition}[section]
+\newenvironment{definition}
+{\colorlet{shadecolor}{green!15}\begin{shaded}
+		\begin{protodefinition}}
+		{\end{protodefinition}\end{shaded}}
+
+% Redefine \proof and QED symbol
+\nc\emfc[1]{{\color{red}#1}} %Emphasis by color.
+\renc\qedsymbol{\emfc{$\lozenge$}}
+\renewenvironment{proof}[1][\proofname]{{\emfc{\textit{#1}} }}{\qed}
+
+% Have equations numbered by subsection
+%\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Document 
+
+\begin{document}
+	
+\maketitle
+
+\setcounter{tocdepth}{1}
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Chapters/naivesets}
+
+\include{Chapters/logic}
+
+\include{Chapters/topology}
+	
+\include{Chapters/analysis}
+
+\include{Chapters/groups}
+
+\include{Chapters/rings}
+
+\include{Chapters/combinatorics}
+
+\appendix
+
+\include{Solutions/shoenfieldSolutions}
+
+\include{Solutions/DandFSolutions}
+
+\include{Solutions/MunkresSolutions}
+
+\printindex
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

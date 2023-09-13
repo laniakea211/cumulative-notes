@@ -1,0 +1,190 @@
+\chapter{Solutions to Munkres' \emph{Topology}}
+
+\section{Set Theory and Logic}
+
+\subsection{Fundamental Concepts}
+
+\begin{exercise}
+	Check the distributive laws for $\cup$ and $\cap$ and 
+	DeMorgan's laws.
+\end{exercise}
+
+\begin{proof}
+	We first show that $A \cap (B \cup C) = (A \cap B) \cup (A \cap 
+	C)$. Let $x$ be an arbitrary element of $A \cap (B \cup C)$. 
+	Then $x \in A$ and $x \in (B \cup C)$. In the case that $x \in 
+	B$, we have $x \in A \cap B$, and therefore $x \in (A \cap B) 
+	\cup (A \cap C)$. In the case that $x \in C$, we have $x \in A 
+	\cap C$, and therefore $x \in (A \cap B) \cup (A \cap C)$. 
+	Thus, $A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)$. 
+	Now let $x$ be an arbitrary element of $(A \cap B) \cup (A \cap 
+	C)$. Then $x \in A \cap B$ or $x \in A \cap C$. In the case 
+	that $x \in A \cap B$, we have $x \in A$ and $x \in B$. But 
+	then $x \in B \cup C$, and so $x \in A \cap (B \cup C)$. In the 
+	case that $x \in A \cap C$, we have $x \in A$ and $x \in C$. 
+	But then $x \in B \cup C$, and so $x \in A \cap (B \cup C)$. 
+	Thus, $(A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C)$ 
+	and we are done.
+	
+	The proof of the second distributive law is similar.
+	
+	We now show that $A \setminus (B \cup C) = (A \setminus B) \cap 
+	(A \setminus C)$ Let $x$ be an arbitrary element of $A 
+	\setminus (B \cup C)$. Then $x \in A$ and $x \notin B \cup C$. 
+	But then $x \notin B$ and $x \notin C$, and thus $x \in (A 
+	\setminus B) \cap (A \setminus C)$. Thus, $A \setminus (B \cup 
+	C) \subseteq (A \setminus B) \cap (A \setminus C)$. Now let $x$ 
+	be an arbitrary element of $(A \setminus B) \cap (A \setminus 
+	C)$. Then $x \in A \setminus B$ (and so $x \in A$ and $x \notin 
+	B$) and $x \in A \setminus C$ (and so $x \in A$ and $x \notin 
+	C$). But then $x \notin B \cup C$, and so $x \in A \setminus (B 
+	\cup C)$. Thus, $(A \setminus B) \cap (A \setminus C) \subseteq 
+	A \setminus (B \cup C)$, and we are done.
+	
+	The proof of DeMorgan's second law is similar.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Determine which of the following statements are true for all 
+	sets $A$, $B$, $C$, and $D$.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	$ $
+	\begin{enumerate}
+		\item[(a)] Write the contrapositive and converse of the 
+		following statement: ``If $x < 0$, then $x^2 - x > 0$,'' 
+		and determine which (if any) of the three statements are 
+		true.
+		
+		\item[(b)] Do the same for the statement ``If $x > 0$, then 
+		$x^2 - x > 0$.''
+	\end{enumerate}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Let $A$ and $B$ be sets of real numbers. Write the negation of 
+	each of the following statements:
+	\begin{enumerate}
+		\item[(a)] For every $a \in A$, it is true that $a^2 \in B$.
+		
+		\item[(b)] For at least one $a \in A$, it is true that $a^2 
+		\in B$.
+		
+		\item[(c)] For every $a \in A$, it is true that $a^2 \notin 
+		B$.
+		
+		\item[(d)] For at least one $a \notin A$, it is true that 
+		$a^2 \in B$.
+	\end{enumerate}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Let $\mc{A}$ be a nonempty collection of sets. Determine the 
+	truth of each of the following statemtns and of their converses:
+	\begin{enumerate}
+		\item[(a)] $x \in \bigcup_{A \in \mc{A}} A \Ra x \in A$ for 
+		at least one $A \in \mc{A}$.
+		
+		\item[(b)] $x \in \bigcup_{A \in \mc{A}} A \Ra x \in A$ for 
+		every $A \in \mc{A}$.
+		
+		\item[(c)] $x \in \bigcap_{A \in \mc{A}} A \Ra x \in A$ for 
+		at least one $A \in \mc{A}$.
+		
+		\item[(d)] $x \in \bigcap_{A \in \mc{A}} A \Ra x \in A$ for 
+		every $A \in \mc{A}$.
+	\end{enumerate}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Write the contrapositive of each of the statements of Exercise 
+	5.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Given sets $A$, $B$, and $C$, express each of the following 
+	sets in terms of $A$, $B$, and $C$, using the symbols $\cup$, 
+	$\cap$, and $\setminus$.
+	\begin{align}
+		D &= \{ x \mid x \in A \text{ and } (x \in B \text{ or } x 
+			\in C) \}\,, \\
+		E &= \{ (x \mid x \in A \text{ and } (x \in B \text{ or }
+			x \in C \}\,, \\
+		F &= \{ x \mid x \in A \text{ and } (x \in B \Ra x \in C) 
+			\}\,.
+	\end{align}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Given a set $A$ has two elements, show that $\ms{P}(A)$ has 
+	four elements. How many elements does $\ms{P}(A)$ if $A$ has 
+	one element? Three elements? No elements? Why is $\ms{P}(A)$ 
+	called the power set of $A$?
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Formulate and prove DeMorgan's laws for arbitrary unions and 
+	intersections.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Let $\reals$ denote the set of real numbers. For each of the 
+	following subsets of $\reals \times \reals$, determine whether 
+	it is equal to the cartesian product of two subsets of $\reals$.
+	\begin{enumerate}
+		\item[(a)] $\{ (x,y) \mid x \text{ is an integer} \}$.
+		
+		\item[(b)] $\{ (x,y) \mid 0 < y \leq 1 \}$.
+		
+		\item[(c)] $\{ (x,y) \mid y > x \}$.
+		
+		\item[(d)] $\{ (x,y) \mid x \text{ is not an integer and } 
+			y \text{ is an integer} \}$.
+			
+		\item[(e)] $\{ (x,y) \mid x^2 + y^2 < 1 \}$.
+	\end{enumerate}
+\end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

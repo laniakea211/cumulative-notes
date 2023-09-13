@@ -1,0 +1,205 @@
+\chapter{Solutions to Shoenfield's \emph{Mathematical Logic}}
+
+\section{The Nature of Mathematical Logic}
+
+No exercises.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{First-Order Theories}
+
+\begin{exercise}
+	An $n$-ary truth function $H$ is \df{definable in terms of} the 
+	truth functions $H_1, \dots, H_k$ if $H$ has a definition
+	\[
+		H(\nms{a}) = ...\,,
+	\]
+	where the right-hand side is built up from $H_1, \dots, H_k, 
+	a_1, \dots, a_n$, and commas and parentheses.
+	\begin{enumerate}
+		\item[a)] Let $H_{d,n}$ be the truth function defined by 
+		setting $H_{d,n}(\nms{a}) = \bt{T}$ if and only if $a_i = 
+		\bt{T}$ for at least one $i$, and let $H_{c,n}$ be the 
+		truth function defined by setting
+		\[
+			H_{c,n}(\nms{a}) = \bt{T}
+			\quad
+			\text{if and only if}
+			\quad 
+			a_i = \bt{T} \text{ for all } i\,.
+		\]
+		Show that every truth function is definable in terms of 
+		$\Hneg{}$ and certain of the $H_{d,n}$ and $H_{c,n}$.
+		
+		\item[b)] Show that every truth function is definable in 
+		terms of $\Hneg{}$ and $\Hor{}$. [Use (a).]
+		
+		\item[c)] Show that every truth function is definable in 
+		terms of $\Hneg{}$ and $\Hra{}$. [Use (b).]
+		
+		\item[d)] Show that every truth function is definable in 
+		terms of $\Hneg{}$ and $\Hand{}$. [Use (b).]
+		
+		\item[e)] Show that $\Hneg{}$ is not definable in terms of 
+		$\Hor{}$, $\Hra{}$, $\Hand{}$, and $\Hlra{}$.
+	\end{enumerate}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+	\begin{enumerate}
+		\item[a)] We first consider the case where $H = \bt{F}$ for 
+		every valuation. Then we define $H$ as
+		\[
+			H(\nms{a}) = H_{d,n} \left( H_{c,2}(a_1,\Hneg{}(a_1)), 
+			\dots, H_{c,2}(a_n,\Hneg{}(a_n)) \right)\,,
+		\]
+		which always evaluates to \bt{F}.
+		
+		Now suppose $H = \bt{T}$ for $m$ $n$-tuples $(\nms{a})_i$ 
+		for $i = 1, \dots, m$. Then for those $m$ $n$-tuples define 
+		$H_{c,n}(i)$ as replacing all $a_j = \bt{F}$ in 
+		$(\nms{a})_i$ with $\Hneg{}(a_j)$. Then we define $H$ as
+		\[
+			H(\nms{a}) = (H_{c,n}(1), \dots, H_{c,n}(m))\,,
+		\]
+		which always evaluates to \bt{T}.
+		
+		\item[b)] We show that $H_{d,n}$ is definable in terms of 
+		$\Hor$, which in turn constitutes a proof due to (a). We 
+		define $H_{d,n}$ as
+		\[
+			H_{d,n} = 
+			\Hor{}(a_1, \dots, \Hor{}(a_{n-2},\Hor{}(a_{n-1}, 
+			\Hor{}(a_n))))\,.
+		\]
+		
+		\item[c)] We know that $\Hra{}(a,b) = 
+		\Hor{}(\Hneg{}(a),b)$.
+	\end{enumerate}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	$ $
+	\begin{enumerate}
+		\item[a)] Let $H_d$ be the truth function defined by
+		\[
+			H_d(a,b) = \bt{T} \text{ if and only if } a = b = 
+			\bt{T}\,.
+		\]
+		Show that every truth function is definable in terms of 
+		$H_d$. [Use 1(b).]
+		
+		\item[b)] Let $H_a$ be the truth function defined by
+		\[
+			H_a(a,b) = \bt{F} \text{ if and only if } a = b = 
+			\bt{T}\,.
+		\]
+		Show that every truth function is definable in terms of 
+		$H_a$.
+		
+		\item[c)] A truth function $H$ is \df{singulary} if there 
+		is a truth function $H'$ and an $i$ such that $H(\nms{a}) = 
+		H'(a_i)$ for all $\nms{a}$. Show that if $H$ is singulary, 
+		then every truth function definable in terms of $H$ is 
+		singulary.
+		
+		\item[d)] Show that if $H$ is a binary truth function such 
+		that every truth function is definable in terms of $H$, 
+		then $H$ is $H_d$ or $H_a$. [Show that $H(\bt{T}, \bt{T}) = 
+		\bt{F}$ and $H(\bt{F},\bt{F}) = \bt{T}$, and use (c).]
+	\end{enumerate}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+	asdf
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Show that if $\bt{u}\bt{v}$ and $\bt{v}\bt{v}'$ are 
+	designators, then either \bt{v} or $\bt{v}'$ is the empty 
+	expression.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+	Suppose $\bt{u}\bt{v}$ and $\bt{v}\bt{v}'$ are designators. We 
+	use induction on the length of $\bt{u}\bt{v}$. If 
+	$\bt{u}\bt{v}$ is a variable, then either \bt{u} or \bt{v} are 
+	empty (since variables have length 1). If \bt{v} is empty, we 
+	are done, so suppose \bt{u} is empty and \bt{v} is a variable. 
+	But then $\bt{v}\bt{v}'$ can only be a designator if $\bt{v}'$ 
+	is empty because the only way to obtain a new designator from a 
+	variable is to add either a function symbol or predicate symbol 
+	to the left of the variable.
+	
+	If $\bt{u}\bt{v}$ is an arbitrary term or formula, it is still 
+	the case that 
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Show that the result of replacing \bt{a} by \bt{x} in a term is 
+	a term, and that the result of replacing \bt{a} by \bt{x} in a 
+	formula is a formula.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof}
+	asdf
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+	Let $T$ be the theory with no nonlogical symbols and no 
+	nonlogical axioms.
+\end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

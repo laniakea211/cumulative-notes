@@ -1,0 +1,93 @@
+\contentsline {chapter}{\numberline {1}Naive Set Theory and Logic}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Sets}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Definition and Examples}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Comparing Different Sets}{5}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}How to Form New Sets From Given Ones}{6}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Functions}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Definition and Examples}{7}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}How to Form New Functions From Given Ones}{7}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Properties a Function Can Have}{8}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Relations}{9}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Definition and Examples}{9}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Equivalence Relations}{9}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Order Relations}{10}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Least Upper Bound Property}{11}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Logic}{12}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Notation}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Functions and Predicates}{14}{section.2.2}%
+\contentsline {section}{\numberline {2.3}First-Order Languages}{16}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Structures}{17}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Definition}{17}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Individuals and Truth of Formulas in $\mathscr {A}$}{17}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}First-Order Theories}{19}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Definition}{19}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Models of Theories}{20}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Definitions Relevant to Theories}{20}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}Truth of Formulas of a Theory}{20}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.5}Theorems in First-Order Theories}{21}{subsection.2.5.5}%
+\contentsline {section}{\numberline {2.6}The Characterization Problem}{22}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}The Reduction Theorem}{22}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Solutions to the Characterization Problem}{22}{subsection.2.6.2}%
+\contentsline {subsubsection}{The Completeness Theorem}{22}{section*.8}%
+\contentsline {subsubsection}{The Consistency Theorem}{23}{section*.9}%
+\contentsline {subsubsection}{Herbrand's Theorem}{24}{section*.10}%
+\contentsline {section}{\numberline {2.7}Interpretations}{24}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Topology}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Topological Space}{26}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Comparing Topologies}{26}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Generating a Topology}{27}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Closed Sets}{28}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Important Topologies}{30}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}The Order Topology}{30}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}The Box Topology}{31}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}The Product Topology}{32}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}The Subspace Topology}{33}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Metrics and The Metric Topology}{34}{subsection.3.3.5}%
+\contentsline {subsubsection}{Relevant Definitions}{34}{section*.16}%
+\contentsline {subsubsection}{Important Metrics}{35}{section*.17}%
+\contentsline {subsection}{\numberline {3.3.6}Relationships Between Important Topologies}{37}{subsection.3.3.6}%
+\contentsline {section}{\numberline {3.4}Hausdorff Spaces}{38}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Sequences (Topology)}{39}{section.3.5}%
+\contentsline {section}{\numberline {3.6}$T_i$ Axioms}{40}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Continuous Function}{41}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Demonstrating a Function Is Continuous}{41}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Constructing Continuous Functions}{41}{subsection.3.7.2}%
+\contentsline {section}{\numberline {3.8}Homeomorphisms}{43}{section.3.8}%
+\contentsline {chapter}{\numberline {4}Analysis}{44}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Group Theory}{45}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Notation}{46}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Definition and Examples}{47}{section.5.2}%
+\contentsline {section}{\numberline {5.3}How to Form New Groups From Given Ones}{48}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Basic Theorems About Groups}{49}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Order of An Element of A Group}{50}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Multiplication Table}{51}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Generators and Relations}{52}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Important Groups}{53}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Dihedral Groups}{53}{subsection.5.8.1}%
+\contentsline {subsubsection}{Notation}{53}{section*.21}%
+\contentsline {subsubsection}{Theorems About Dihedral Groups}{53}{section*.22}%
+\contentsline {subsection}{\numberline {5.8.2}Symmetric Groups}{54}{subsection.5.8.2}%
+\contentsline {subsubsection}{Cycle Decomposition}{54}{section*.23}%
+\contentsline {subsubsection}{Theorems About Symmetric Groups}{54}{section*.24}%
+\contentsline {subsection}{\numberline {5.8.3}Matrix Groups}{55}{subsection.5.8.3}%
+\contentsline {subsubsection}{Theorems About Matrix Groups}{55}{section*.25}%
+\contentsline {subsection}{\numberline {5.8.4}The Quaternion Group}{56}{subsection.5.8.4}%
+\contentsline {subsubsection}{Theorems About the Quaternion Group}{56}{section*.26}%
+\contentsline {section}{\numberline {5.9}Homomorphisms and Isomorphisms}{57}{section.5.9}%
+\contentsline {subsubsection}{Theorems About Isomorphisms}{57}{section*.27}%
+\contentsline {section}{\numberline {5.10}Group Actions}{58}{section.5.10}%
+\contentsline {chapter}{\numberline {6}Ring Theory}{59}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Combinatorics}{60}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The Pigeonhole Principle}{61}{section.7.1}%
+\contentsline {chapter}{\numberline {A}Solutions to Shoenfield's \emph {Mathematical Logic}}{62}{appendix.A}%
+\contentsline {section}{\numberline {A.1}The Nature of Mathematical Logic}{62}{section.A.1}%
+\contentsline {section}{\numberline {A.2}First-Order Theories}{62}{section.A.2}%
+\contentsline {chapter}{\numberline {B}Solutions to D\&F's \emph {Abstract Algebra}}{65}{appendix.B}%
+\contentsline {subsection}{\numberline {B.0.1}Basics}{65}{subsection.B.0.1}%
+\contentsline {subsection}{\numberline {B.0.2}Properties of the Integers}{68}{subsection.B.0.2}%
+\contentsline {subsection}{\numberline {B.0.3}$\mathbb {Z}/n\mathbb {Z}$: The Integers Modulo $n$}{75}{subsection.B.0.3}%
+\contentsline {section}{\numberline {B.1}Introduction to Groups}{77}{section.B.1}%
+\contentsline {subsection}{\numberline {B.1.1}Basic Axioms and Examples}{77}{subsection.B.1.1}%
+\contentsline {chapter}{\numberline {C}Solutions to Munkres' \emph {Topology}}{81}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Set Theory and Logic}{81}{section.C.1}%
+\contentsline {subsection}{\numberline {C.1.1}Fundamental Concepts}{81}{subsection.C.1.1}%

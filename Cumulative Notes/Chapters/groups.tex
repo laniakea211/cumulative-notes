@@ -1,0 +1,623 @@
+\chapter{Group Theory}
+
+Abstract algebra is, as its name suggests, extremely abstract. It 
+arose as an attempt to abstract the techniques used in algebraic 
+equations, number theory, and geometry.
+There are many specific examples of groups, and the power of the 
+abstract point of view becomes apparent when results for all of 
+these examples are obtained by providing a single result for the 
+abstract group. The information in this chapter is based on Dummit 
+and Foote's \emph{Abstract Algebra} (2004).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Notation}
+
+\begin{itemize}
+	\item We write $ab$ for $a \cdot b$.
+	
+	\item We denote the identity element of an abstract group $(G, 
+	\cdot)$ by 1.
+	
+	\item We denote $xx \dots x$ ($n$ terms) by $x^n$ and $x^{-1} 
+	x^{-1} \dots x^{-1}$ ($n$ terms) by $x^{-n}$.
+	
+	\item When the operation is +, the identity will be denoted by 
+	0, and for any element $a$, the inverse will be written $-a$. 
+	Moreover, $a+ \dots + a$ ($n > 0$ terms) will be written $na$; 
+	$-a - a \dots -a$ ($n$ terms) will be written $-na$ and $0a = 
+	0$.
+	
+	\item For each $n \in \zplus$ let $GL_n(F)$ be the set of all 
+	$n \times n$ matrices whose entries come from $F$ and whose 
+	determinant is nonzero.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Definition and Examples}
+
+\begin{definition}[Binary Operation]
+	$ $
+	\begin{enumerate}
+		\item A \df{binary operation}\index{group theory!binary 
+		operation} $\cdot$ on a set $G$ is a function $\cdot : G 
+		\times G \to G$. For any $a,b \in G$ we	write $a \cdot b$.
+		
+		\item A binary operation $\cdot$ on a set $G$ is 
+		\df{associative}\index{group theory!associative} if for all 
+		$a,b,c \in G$ we have $a \cdot (b \cdot c) = (a \cdot b) 
+		\cdot c$.
+		
+		\item If $\cdot$ is a binary operation on a set $G$ we say 
+		elements $a$ and $b$ of $G$ \df{commute}\index{group 
+			theory!commutative} if $a \cdot b = b \cdot a$. We say 
+		$\cdot$ (or $G$) is \df{commutative} if for all $a,b \in 
+		G$, $a \cdot b = b \cdot a$.
+		
+		\item Suppose that $\cdot$ is a binary operation on a set 
+		$G$ and $H$ is a subset of $G$. If the restriction of 
+		$\cdot$ to $H$ is a binary operation on $H$, i.e., for all 
+		$a,b \in H$, $a \cdot b \in H$, then $H$ is said to be 
+		\df{closed}\index{group theory!closed under operation} 
+		under $\cdot$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Group]
+	$ $
+	\begin{enumerate}
+		\item A \df{group}\index{group theory!group} is an ordered 
+		pair $(G,\cdot)$ where $G$ is a set and $\cdot$ is a binary 
+		operation on $G$ satisfying the following axioms:
+		\begin{enumerate}
+			\item $\cdot$ is associative,
+			
+			\item there exists an element $e$ in $G$, called an 
+			\df{identity}\index{group theory!identity element} of 
+			$G$, such that for all $a \in G$ we have $a \cdot e = e 
+			\cdot a = a$,
+			
+			\item for each $a \in G$ there is an element $a^{-1}$ 
+			of $G$, called an \df{inverse}\index{group 
+				theory!inverse of element} of $a$, such that $a 
+				\cdot 
+			a^{-1} = a^{-1} \cdot a = e$.
+		\end{enumerate}
+		
+		\item The group $(G, \cdot)$ is called 
+		\df{abelian}\index{group theory!abelian} (or 
+		\df{commutative}\index{group theory!commutative group}) if 
+		$a \cdot b = b \cdot a$ for all $a,b \in G$.
+	\end{enumerate}
+\end{definition}
+
+Remark: We say $(G, \cdot)$ is a \df{finite group}\index{group 
+theory!finite 
+group} if in addition $G$ is a 
+finite set.
+
+\begin{example}
+	$ $
+	\begin{itemize}
+		\item $\integers$, $\rationals$, $\reals$, and $\complex$ 
+		are groups under + with $e = 0$ and $a^{-1} = -a$, for all 
+		$a$.
+		
+		\item $\rationals \setminus \{ 0 \}$, $\reals \setminus \{ 
+		0 \}$, $\complex \setminus \{ 0 \}$, $\rationals^+$, 
+		$\reals^+$ are groups under $\times$ with $e = 1$ and 
+		$a^{-1} = \frac{1}{a}$, for all $a$.
+	\end{itemize}
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{How to Form New Groups From Given Ones}
+
+\begin{itemize}
+	\item If $(A,\cdot)$ and $(B,*)$ are groups, we can form a new
+	group $(A \times B, \diamond)$, called their \df{direct 
+	product}\index{group theory!direct product}, whose elements are 
+	those in the Cartesian product $A \times B$ and whose operation 
+	is defined componentwise:
+	\[
+		(a_1,b_1)(a_2,b_2) = (a_1 \cdot a_2, b_1 * b_2)\,.
+	\]
+
+	\begin{example}
+		If we take $A = B = \reals$ (both operations addition), 
+		$\reals \times \reals$ is the familiar Euclidean plane.
+	\end{example}
+
+	\item Let $G$ be a group. The subset $H$ of $G$ is a 
+	\df{subgroup}\index{group theory!subgroup} of $G$ if $H$ is 
+	nonempty and $H$ is closed under products and inverses. If $H$ 
+	is a subgroup of $G$ we shall write $H \leq G$.
+	
+	Remark: Subgroups of $G$ are just subsets of $G$ which are 
+	themselves groups with respect to the operation defined in $G$.
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Basic Theorems About Groups}
+
+\begin{theorem}[Uniqueness of Identity and Inverse]
+	If $(G, \cdot)$ is a group, then
+	\begin{enumerate}
+		\item the identity of $(G, \cdot)$ is unique
+		
+		\item for each $a \in G$, $a^{-1}$ is uniquely determined
+		
+		\item $(a^{-1})^{-1} = a$ for all $a \in G$
+		
+		\item $(a \cdot b)^{-1} = (b^{-1}) \cdot (a^{-1})$
+		
+		\item for any $a_1, a_2, \dots, a_n \in G$ the value of 
+		$a_1 \cdot a_2 \cdot \dots \cdot a_n$ is independent of how 
+		the expression is bracketed (this is called the 
+		\df{generalized associative law}).
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Cancellation Laws]
+	Let $(G, \cdot)$ be a group and let $a,b \in G$. The equations 
+	$ax = b$ 
+	and $ya = b$ have unique solutions for $x,y \in G$. In 
+	particular, the left and right cancellation laws hold in $G$, 
+	i.e.,
+	\begin{enumerate}
+		\item if $au = av$, then $u=v$, and
+		
+		\item if $ub=vb$, then $u=v$.
+	\end{enumerate}
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Order of An Element of A Group}
+
+\begin{definition}
+	For $G$ a group and $x \in G$, the \df{order}\index{group 
+	theory!order of element} of $x$ is the 
+	smallest positive integer $n$ such that $x^n = 1$. We denote 
+	this integer by $|x|$. In this case $x$ is said to be of order 
+	$n$. If no positive power of $x$ is the identity, the order of 
+	$x$ is defined to be infinity and $x$ is said to be of infinite 
+	order.
+\end{definition}
+
+Remark: The order of an element in a group is the same as the 
+cardinality of the set of all its distinct powers, which is why we 
+use the same notation as cardinality.
+
+\begin{example}
+	$ $
+	\begin{itemize}
+		\item An element of a group has order 1 if and only if it 
+		is the identity.
+		
+		\item In the multiplicative groups $\reals \setminus \{ 0 
+		\}$ or $\rationals \setminus \{ 0 \}$ the element $-1$ has 
+		order 2 and all other nonidentity elements have infinite 
+		order.
+	\end{itemize}
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Multiplication Table}
+
+\begin{definition}[Multiplication/Group Table]
+	Let $G = \{ g_1, g_2, \dots, g_n \}$ be a finite group with 
+	$g_1 = 1$. The \df{multiplication table}\index{group 
+	theory!multiplication/group table} or \df{group table} of 
+	$G$ is the $n \times n$ matrix whose $i, j$ entry is the group 
+	element $g_ig_j$.
+\end{definition}
+
+Remark: ``For a finite group the multiplication table contains, in 
+some sense, all the information about the group. Computationally, 
+however, it is an unwieldy object (being of size the square of the 
+group order) and visually it is not a very useful object for 
+determining properties of the group. ... Part of our initial 
+development of the theory of groups (finite groups in particular) 
+is directed towards a more conceptual way of visualizing the 
+internal structure of groups.''
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage 
+
+\section{Generators and Relations}\label{generators and relations}
+
+\begin{definition}[Generators]
+	A subset $S$ of elements of a group $G$ with the property that 
+	every element of $G$ can be written as a (finite) product of 
+	elements of $S$ and their inverses is called a set of 
+	\df{generators}\index{group theory!generators} of $G$. We 
+	write $G = \langle S \rangle$ and say $G$ is generated by $S$ 
+	or $S$ generates $G$.
+\end{definition}
+
+\begin{example}
+	$ $
+	\begin{itemize}
+		\item The integer 1 is a generator for the additive group 
+		$\integers$ of integers since every integer is a sum of a 
+		finite number of $+1$'s and $-1$'s, so $\integers = \langle 
+		1 \rangle$.
+		
+		\item As defined in Section \ref{dihedral groups}, $D_{2n} 
+		= \langle r, s \rangle$.
+	\end{itemize}
+\end{example}
+
+\begin{definition}
+	Any equations in a general group $G$ that the generators 
+	satisfy are called the \df{relations}\index{group 
+	theory!relations} in $G$.
+\end{definition}
+
+\begin{example}
+	In $D_{2n}$ we have the relations $r^n = 1$, $s^2 = 1$, and $rs 
+	= sr^{-1}$.
+\end{example}
+
+If some group $G$ is generated by a subset $S$ and there is some 
+collection of relations, say $R_1, R_2, \dots, R_m$ (here each 
+$R_i$ is an equation in the elements from $S \cup \{ 1 \}$) such 
+that any relation among the elements of $S$ can be deduced from 
+these, we shall call these generators and relations a 
+\df{presentation}\index{group theory!presentation} of $G$ and write
+\[
+	G = \langle S \mid R_1, R_2, \dots, R_m \rangle\,.
+\]
+
+For example, $D_{2n} = \langle r,s \mid r^n = s^2 = 1, rs = sr^{-1} 
+\rangle$ is one presentation of the dihedral group $D_{2n}$. 
+Working in terms of presentations often simplifies the situation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Important Groups}
+
+\subsection{Dihedral Groups}\label{dihedral groups}
+
+Main Idea: An important family of examples of groups is the class 
+of groups whose elements are symmetries of geometric objects.
+
+We rigorously define the symmetries of a regular $n$-gon. Label 
+each vertex with a distinct integer $i$ for $1 \leq i \leq n$. 
+Each symmetry $s$ can be described uniquely by the 
+corresponding permutation $\sigma$ of $\{1, 2, 3, \dots, n \}$ 
+where if the symmetry $s$ puts vertex $i$ in the place where 
+vertex $j$ was originally, then $\sigma$ is the permutation 
+sending $i$ to $j$. There are $n$ rotation symmetries and $n$ 
+reflection symmetries.
+
+\begin{definition}[Dihedral Group]\index{group theory!dihedral 
+group}
+	The set of symmetries $s$ of a regular $n$-gon, together with 
+	the binary operation of composition form a group called the 
+	\df{dihedral group of order $2n$}.
+\end{definition}
+
+\subsubsection{Notation}
+
+\begin{itemize}
+	\item Let $r$ be the rotation clockwise about the origin 
+	through $2\pi/n$ radian. 
+	
+	\item Let $s$ be the reflection about the line of symmetry 
+	through vertex 1 and the origin.
+\end{itemize}
+
+\subsubsection{Theorems About Dihedral Groups}
+
+\begin{theorem}
+	$ $
+	\begin{enumerate}
+		\item $1, r, r^2, \dots, r^{n-1}$ are distinct and $r^n = 
+		1$, so $|r| = n$.
+		
+		\item $|s| = 2$.
+		
+		\item $s \neq r^i$ for any $i$.
+		
+		\item $sr^i \neq sr^j$, for all $0 \leq i$, $j \leq n - 1$ 
+		with $i \neq j$, so
+		\[
+			D_{2n} = \{ 1, r, r^2, \dots, r^{n-1}, s, sr, sr^2, 
+			\dots, sr^{n-1} \}\,.
+		\]
+		
+		\item $rs = sr^{-1}$. This shows in particular that $r$ and 
+		$s$ do not commute so that $D_{2n}$ is non-abelian.
+		
+		\item $r^is = sr^{-i}$, for all $0 \leq i \leq n$. This 
+		indicates how to commute $s$ with powers of $r$.
+	\end{enumerate}
+\end{theorem}
+
+$r$ and $s$ are called \df{generators} for the dihedral group. (See 
+Section \ref{generators and relations}.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\subsection{Symmetric Groups}
+
+\begin{definition}[Symmetric Group]\index{group theory!symmetric 
+group}
+	Let $\Omega$ be any nonempty set and let $S_\Omega$ be the set 
+	of all bijections from $\Omega$ to itself (i.e., the set of all 
+	permutations of $\Omega$). The set $S_\Omega$ is a group under 
+	function composition ($\circ$) called the \df{symmetric group 
+	on the set $\Omega$}.
+\end{definition}
+
+Remark: In the special case when $\Omega = \{ 1, 2, 3, \dots, n 
+\}$, the symmetric group on $\Omega$ is denoted $S_n$, the 
+\df{symmetric group of degree $n$}.
+
+\subsubsection{Cycle Decomposition}\index{group theory!cycle 
+decomposition}
+
+\begin{definition}[Cycle]\index{group theory!cycle}
+	A \df{cycle} is a string of integers which represents the 
+	elements of $S_n$ which cyclically permutes these integers (and 
+	fixes all other integers). The cycle $(a_1 \, a_2 \, \dots \, 
+	a_m)$ is the permutation which sends $a_i$ to $a_{i+1}$, $1 
+	\leq i \leq m-1$ and sends $a_m$ to $a_1$.
+\end{definition}
+
+\begin{example}
+	The cycle $(2 \, 1 \, 3)$ is the permutation which maps 2 to 1, 
+	1 to 3, and 3 to 2.
+\end{example}
+
+Remark: Disjoint cycles commute.
+
+For each $\sigma \in S_n$ the numbers from 1 to $n$ will 
+be rearranged and grouped into $k$ cycles of the form
+\[
+(a_1 \, a_2 \, \dots \, a_{m_1})
+(a_{m_1+1} \, a_{m_1+2} \, \dots \, a_{m_2})
+\dots 
+(a_{m_{k-1}+1} \, a_{m_{k-1}+2} \, \dots \, a_{m_k})
+\]
+from which the action of $\sigma$ on any number from 1 to $n$ 
+can easily be read. The product of these cycles is called the 
+\df{cycle decomposition} of $\sigma$.
+
+\subsubsection{Theorems About Symmetric Groups}
+
+\begin{itemize}
+	\item The order of $S_n$ is $n!$.
+	
+	\item $S_n$ is a non-abelian group for all $n \geq 3$.
+	
+	\item The cycle decomposition of each permutation is the unique 
+	way of expressing a permutation as a product of disjoint cycles 
+	(up to rearranging its cycles and cyclically permuting the 
+	numbers within each cycle).
+	
+	\item The order of a permutation is the l.c.m. of the lengths 
+	of the cycles in its cycle decomposition.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\subsection{Matrix Groups}
+
+\begin{definition}[General Linear Group]\index{group theory!general 
+linear group}
+	$GL_n(F)$, that is the set of all $n \times n$ matrices whose 
+	entries come from a field $F$ and whose determinant is nonzero, 
+	form a group under matrix multiplication called the \df{general 
+	linear group of degree $n$}.
+\end{definition}
+
+\subsubsection{Theorems About Matrix Groups}
+
+\begin{itemize}
+	\item If $F$ is a field and $|F| < \infty$, then $|F| = p^m$ 
+	for some prime $p$ and integer $m$.
+	
+	\item If $|F| = q < \infty$, then $|GL_n(F)| = (q^n - 1)(q^n - 
+	q)(q^n - q^2) \dots (q^n - q^{n-1})$.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\subsection{The Quaternion Group}
+
+\begin{definition}[Quaternion Group]\index{group theory!quaternion 
+group}
+	The \df{quaternion group}, $Q_8$, is defined by 
+	\[
+		\{ 1, -1, i, -i, j, -j, k, -k \}
+	\]
+	with product $\cdot$ computed as follows:
+	\begin{gather}
+		1 \cdot a = a \cdot 1 = a\,, \quad
+			\text{for all } a \in Q_8 \\
+		(-1) \cdot (-1) = 1\,, \quad (-1) \cdot a = a \cdot (-1)
+			= -a\,, \quad \text{for all } a \in Q_8 \\
+		i \cdot i = j \cdot j = k \cdot k = -1 \\
+		i \cdot j = k\,, \quad j \cdot i = -k \\
+		j \cdot k = i\,, \quad k \cdot j = -i \\
+		k \cdot i = j\,, \quad i \cdot k = -j\,.
+	\end{gather}
+\end{definition}
+
+Remark: $Q_8$ is a non-abelian group of order 8.
+
+\subsubsection{Theorems About the Quaternion Group}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Homomorphisms and Isomorphisms}
+
+Main Idea: A map is a homomorphism if it respects the group 
+structures of its domain and codomain. The notion of isomorphism 
+makes precise the idea of when two groups ``look the same," that 
+is, have exactly the same group-theoretic structure.
+
+\begin{definition}[Homomorphism]\index{group theory!homomorphism}
+	Let $(G, \cdot)$ and $(H, *)$ be groups. A map $\varphi:G \to 
+	H$ 
+	such that 
+	\[
+		\varphi(x \cdot y) = \varphi(x) * \varphi(y)\,, \quad 
+		\text{for all } x,y \in G
+	\]
+	is called a \df{homomorphism}.
+\end{definition}
+
+\begin{definition}[Isomorphism]\index{group theory!isomorphism}
+	The map $\varphi:G \to H$ is called an \df{isomorphism} and $G$ 
+	and $H$ are said to be \df{isomorphic} or of the same 
+	\df{isomorphism type}, written $G \cong H$, if 
+	\begin{enumerate}
+		\item $\varphi$ is a homomorphism, and
+		\item $\varphi$ is a bijection.
+	\end{enumerate}
+\end{definition}
+
+\subsubsection{Theorems About Isomorphisms}
+
+\begin{itemize}
+	\item The relation $\cong$ is an equivalence relation, the 
+	equivalence classes of which are called \df{isomorphism 
+	classes}.
+
+	\item If $\varphi:G \to H$ is an isomorphism, then
+	\begin{enumerate}
+		\item $|G| = |H|$
+		
+		\item $G$ is abelian if and only if $H$ is abelian
+		
+		\item for all $x \in G$, $|x| = |\varphi(x)|$.
+	\end{enumerate}
+
+	\item Let $G$ be a finite group of order $n$ for which we have 
+	a presentation and let $S = \{ s_1, \dots, s_m \}$ be the 
+	generators. Let $H$ be another group and $\{ r_1, \dots, r_m 
+	\}$ be the elements of $H$. Suppose that any relation satisfied 
+	in $G$ by the $s_i$ is also satisfied in $H$ when each $s_i$ is 
+	replaced by $r_i$. Then there is a unique homomorphism 
+	$\varphi:G \to H$ which maps $s_i$ to $r_i$.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Group Actions}
+
+Main Idea: A group action is when a group acts on a set. 
+Intuitively, a group action of $G$ on a set $A$ just means that 
+every element $g$ in $G$ acts as a permutation on $A$ in a manner 
+consistent with the group operations in $G$.
+
+\begin{definition}[Group Action]\index{group theory!group action}
+	A \df{group action} of a group $G$ on a set $A$ is a map from 
+	$G \times A$ to $A$ (written as $g \cdot a$, for all $g \in G$ 
+	and $a \in A$) satisfying the following properties:
+	\begin{enumerate}
+		\item $g_1 \cdot (g_2 \cdot a) = (g_1g_2) \cdot a$, for all 
+		$g_1, g_2 \in G$, $a \in A$, and
+		
+		\item $1 \cdot a = a$, for all $a \in A$.
+	\end{enumerate}
+\end{definition}
+
+For each fixed $g \in G$ we get a map $\sigma_g$ defined by 
+\begin{gather}
+	\sigma_g: A \to A \\
+	\sigma_g(a) = g \cdot a\,,
+\end{gather}
+where $\sigma_g$ is a permutation of $A$ and the map from $G$ to 
+$S_A$ defined by $g \mapsto \sigma_g$ is a homomorphism. This 
+homomorphism is called the \df{permutation 
+representation}\index{group theory!permutation representation of 
+group action} associated to the given action.
+
+If $G$ acts on a set $B$ and distinct elements of $G$ induce 
+distinct permutations of $B$, the action is said to be 
+\df{faithful}\index{group theory!faithful group action}.
+
+The \df{kernel}\index{group theory!kernel of group action} of the 
+action of $G$ on $B$ is defined to be $\{ g \in G \mid gb = b 
+\text{ for all } b \in B \}$, namely the elements of $G$ which fix 
+all the elements of $B$.
+
+\begin{example}
+	$ $
+	\begin{itemize}
+		\item For any nonempty set $A$ the symmetric group $S_A$ 
+		acts on $A$ by $\sigma \cdot a = \sigma(a)$ for all $\sigma 
+		\in S_A$, $a \in A$. The associated permutation 
+		representation is the identity map from $S_A$ to itself.
+		
+		\item The axioms for a vector space $V$ over a field $F$ 
+		include the two axioms that the multiplicative group 
+		$F^\times$ act on the set $V$.
+	\end{itemize}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

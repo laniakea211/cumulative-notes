@@ -1,0 +1,610 @@
+\chapter{Logic}
+
+Logic provides the materials needed for a rigorous theory of how 
+to prove theorems and build axiomatic systems such as axiomatic 
+set theory. It contains fascinating theorems with widespread 
+implications such as G\"odel's infamous Incompleteness Theorems. 
+The information in this chapter is based on Shoenfield's classic 
+\emph{Mathematical Logic} (1967).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Notation}
+
+\begin{itemize}
+	\item \bt{u} and \bt{v} are syntactical variables which vary 
+	through all expressions.
+	
+	\item \bt{A}, \bt{B}, \bt{C}, and \bt{D} are syntactical 
+	variables which vary through formulas.
+	
+	\item \bt{x}, \bt{y}, \bt{z}, and \bt{w} are syntactical 
+	variables which vary through variables.
+	
+	\item \bt{f} and \bt{g} are syntactical variables which vary 
+	through function symbols.
+	
+	\item \bt{p} and \bt{q} are syntactical variables which vary 
+	through predicate symbols.
+	
+	\item \bt{e} is a syntactical variables which varies through 
+	constants.
+	
+	\item \bt{a}, \bt{b}, \bt{c}, and \bt{d} are syntactical  
+	variables which vary through terms.
+	
+	\item $\bt{b}_{\nbts{x}}[\nbts{a}]$ 
+	designates the expression obtained from \bt{b} by replacing 
+	all occurrences of $\nbts{x}$ by $\nbts{a}$ respectively.
+	
+	\item $\bt{A}_{\nbts{x}}[\nbts{a}]$ 
+	designates the expression obtained from \bt{A} by replacing 
+	all free occurrences of $\nbts{x}$ by $\nbts{a}$ respectively.
+	
+	\item \bt{i} and \bt{j} are syntactical variables which vary 
+	through names.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Functions and Predicates}
+
+Main Idea: Functions assign a collection of elements from one set 
+to a single element of another set. Predicates represent some 
+relationship between a collection of elements from a set.
+
+\begin{definition}[$n$-tuple]
+	An \df{$n$-tuple}\index{logic!$n$-tuple} in $A$ is a sequence 
+	of $n$ (not necessarily	distinct) objects in $A$.
+\end{definition}
+
+We write $(a_1, a_2, \cdots, a_n)$ for the $n$-tuple consisting of 
+the objects $a_1, a_2, \cdots, a_n$ in that order. We agree that 
+there is exactly one 0-tuple in $A$, and we designate it by ( ).
+
+\begin{definition}[Functions]
+	A mapping from the set of $n$-tuples in $A$ to $B$ is called an 
+	\df{$n$-ary function from $A$ to $B$}\index{logic!function}.
+\end{definition}
+
+\begin{example}[Truth Functions]
+	A \df{truth function}\index{logic!truth function} is a function 
+	from the set of truth values, $\{ \bt{T}, \bt{F} \}$, to the 
+	set of truth values. We have
+	\begin{itemize}
+		\item the \df{and} truth function:
+		\begin{align*}
+			H_\land(\bt{T},\bt{T}) &= \bt{T}\,, \\
+			H_\land(\bt{T},\bt{F}) &= H_\land(\bt{F},\bt{T})
+				= H_\land(\bt{F},\bt{F}) = \bt{F}\,.
+		\end{align*}
+		\item the \df{or} truth function:
+		\begin{align*}
+			H_\lor(\bt{T},\bt{T}) &= H_\lor(\bt{T},\bt{F})
+				= H_\lor(\bt{F},\bt{T}) = \bt{T}\,, \\
+			H_\lor(\bt{F},\bt{F}) &= \bt{F}\,.
+		\end{align*}
+		\item the \df{if ... then} truth function:
+		\begin{align*}
+			H_\to(\bt{T},\bt{T}) &= H_\to(\bt{F},\bt{T})
+				= H_\to(\bt{F},\bt{F}) = \bt{T}\,, \\
+			H_\to(\bt{T},\bt{F}) &= \bt{F}\,.
+		\end{align*}
+		\item the \df{if and only if} truth function:
+		\begin{align*}
+			H_\lra(\bt{T},\bt{T}) &= H_\lra(\bt{F},\bt{F})
+				= \bt{T}\,, \\
+			H_\lra(\bt{T},\bt{F}) &= H_\lra(\bt{F},\bt{T})
+				= \bt{F}\,.
+		\end{align*}
+		\item the \df{not} truth function:
+		\[
+			H_\neg(\bt{T}) = \bt{F}\,,
+			\quad 
+			H_\neg(\bt{F}) = \bt{T}\,.
+		\]
+	\end{itemize}
+\end{example}
+
+\begin{definition}[Predicate]
+	A subset of the set of $n$-tuples in $A$ is called an 
+	\df{$n$-ary predicate in $A$}\index{logic!predicate}.
+\end{definition}
+
+If $P$ represents such a predicate, then $P(a_1, \cdots, a_n)$ 
+means that the $n$-tuple $(a_1, \cdots, a_n)$ is in $P$. We say 
+\df{unary} for 1-ary and \df{binary} for 2-ary. Note that a unary 
+function from $A$ to $B$ is a mapping from $A$ to $B$, and that a 
+unary predicate in $A$ is a subset of $A$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{First-Order Languages}
+
+Main Idea: First-order languages belong to the syntactical study of 
+axiom systems. They describe the symbols to be used.
+
+\begin{definition}[First-order Language]
+	A \df{first-order language}\index{logic!first-order language} 
+	has as symbols the following:
+	\begin{enumerate}
+		\item[a)] the variables
+		\[ x,y,z,w,x',y',z',w',x'', \dots \,; \]
+		
+		\item[b)] for each $n$, the $n$-ary function symbols and 
+		the $n$-ary predicate symbols;
+		
+		\item[c)] the symbols $\neg$, $\lor$, and $\exists$.
+	\end{enumerate}
+\end{definition}
+
+Remark: The equality symbol = must be among the binary predicate 
+symbols.
+
+The first-order language $L'$ is an 
+\df{extension}\index{logic!extension of language} of the 
+first-order language $L$ if every nonlogical symbol of $L$ is a 
+nonlogical symbol of $L'$.
+
+\begin{definition}[Designators]
+	$ $
+	\begin{itemize}
+		\item We define the \df{terms}\index{logic!terms} of a 
+		first-order language by the generalized inductive 
+		definition:
+		\begin{enumerate}
+			\item[i)] a variable is a term;
+				
+			\item[ii)] if $\bt{u}_1, \cdots, \bt{u}_n$ are 
+			terms and \bt{f} is $n$-ary, then 
+			$\bt{f}\bt{u}_1 \cdots \bt{u}_n$ is a term.
+		\end{enumerate}
+		
+		\item An \df{atomic formula}\index{logic!atomic formula} is 
+		an expression of the form $\bt{p}\bt{a}_1 \cdots \bt{a}_n$ 
+		where \bt{p} is $n$-ary. We define the 
+		\df{formulas}\index{logic!formulas} of a first-order 
+		language by the generalized inductive definition:
+		\begin{enumerate}
+			\item[i)] an atomic formula is a formula;
+			
+			\item[ii)] if \bt{u} is a formula, then $\neg \bt{u}$ 
+			is a formula;
+			
+			\item[iii)] if \bt{u} and \bt{v} are formulas, then 
+			$\lor \bt{u}\bt{v}$ is a formula;
+			
+			\item[iv)] if \bt{u} is a formula, then $\exists \bt{x} 
+			\bt{u}$ is a formula.
+		\end{enumerate}
+		\item A \df{designator}\index{logic!designator} is an 
+		expression which is either a term or a formula.
+	\end{itemize}
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Structures}
+
+Main Idea: Structures describe the semantics, the meaning, of 
+first-order languages; We attach meanings to the symbols. 
+Individuals of the structure are given names. Add names to $L$ to 
+get $L(\ms{A})$. Assign every variable-free term of $L(\ms{A})$ to 
+an individual of the structure. Closed formulas of $L(\ms{A})$ are 
+then given truth values, specifying if they're true in the 
+structure. Then can say \bt{A} is valid in $\ms{A}$ if every 
+instantiation of \bt{A} is true in $\ms{A}$. A model is a structure 
+for a theory of a language in which all the nonlogical axioms of 
+the theory are valid.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Definition}
+
+\begin{definition}[Structure]
+	Let $L$ be a first-order language. A 
+	\df{structure}\index{logic!structure} $\ms{A}$ for $L$ consists 
+	of the following things:
+	\begin{enumerate}
+		\item[i)] A nonempty set $| \ms{A} |$, called the 
+		\df{universe} of $\ms{A}$. The elements of $| \ms{A} |$ are 
+		called the \df{individuals} of $\ms{A}$.
+		
+		\item[ii)] For each $n$-ary function symbol \bt{f} of $L$, 
+		an $n$-ary function $\bt{f}_\ms{A}$ from $| \ms{A} |$ to $| 
+		\ms{A} |$.
+		
+		\item[iii)] For each $n$-ary predicate symbol \bt{p} of $L$ 
+		other than =, an $n$-ary predicate $\bt{p}_\ms{A}$ in $| 
+		\ms{A} |$.
+	\end{enumerate}
+\end{definition}
+
+For each individual $a$ of $\ms{A}$, we choose a new constant, 
+called the \df{name}\index{logic!name} of $a$. The first-order 
+language obtained from $L$ by adding all the names of individuals 
+of $\ms{A}$ is designated by $L(\ms{A})$. A formula \bt{A} is 
+\df{closed}\index{logic!closed formula} if no variable is free in 
+\bt{A}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Individuals and Truth of Formulas in $\ms{A}$}
+
+For each variable-free term \bt{a} of $L(\ms{A})$:
+\begin{itemize}
+	\item If \bt{a} is a name, $\ms{A}(\bt{a})$ is the individual 
+	of which \bt{a} is the name.
+	
+	\item If \bt{a} is $\bt{f}\bt{a}_1 \cdots \bt{a}_n$, 
+	$\ms{A}(\bt{a})$ is $\bt{f}_\ms{A} \left( \ms{A}(\bt{a}_1), 
+	\cdots, \ms{A}(\bt{a}_n) \right)$.
+\end{itemize}
+
+\noindent
+For each closed formula \bt{A} of $L(\ms{A})$:
+\begin{itemize}
+	\item If \bt{A} is $\bt{a} = \bt{b}$, $\ms{A}(\bt{A}) = \bt{T}$ 
+	if and only if $\ms{A}(\bt{a}) = \ms{A}(\bt{b})$.
+	
+	\item If \bt{A} is $\bt{p}\bt{a}_1 \cdots \bt{a}_n$, where 
+	\bt{p} is not =, $\ms{A}(\bt{A}) = \bt{T}$ if and only if 
+	$\bt{p}_\ms{A} \left( \ms{A}(\bt{a}_1), \cdots, 
+	\ms{A}(\bt{a}_n) \right)$.
+	
+	\item If \bt{A} is $\neg \bt{B}$, $\ms{A}(\bt{A})$ is 
+	$\Hneg{}(\ms{A}(\bt{B}))$.
+	
+	\item If \bt{A} is $\lor \bt{B} \bt{C}$, $\ms{A}(\bt{A})$ 
+	is $\Hor{}(\ms{A}(\bt{B}),\ms{A}(\bt{C}))$.
+	
+	\item If \bt{A} is $\existsx{}\bt{B}$, $\ms{A}(\bt{A}) = 
+	\bt{T}$ if and 
+	only if $\ms{A}(\Bxi{}) = \bt{T}$ for some \bt{i} in 
+	$L(\ms{A})$.
+\end{itemize}
+
+If \bt{A} is a formula of $L$, an $\ms{A}$-instance of \bt{A} is a 
+closed formula of the form $\bt{A}[\bt{i}_1, \dots, \bt{i}_n]$ in 
+$L(\ms{A})$.
+A formula \bt{A} is \df{valid}\index{logic!valid formula} in 
+$\ms{A}$ if $\ms{A}(\bt{A}') = \bt{T}$ for every $\ms{A}$-instance 
+$\bt{A}'$ of \bt{A}.
+A formula is \df{elementary}\index{logic!elementary formula}  if it 
+is either an atomic formula or an instantiation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{First-Order Theories}
+
+Main Idea: The primary object of a formal system is to provide a 
+framework for proving theorems.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Definition}
+
+\begin{definition}[Formal System]
+	A \df{formal system} $F$ consists of a language $L(F)$, axioms 
+	of $F$, and rules of inference of $F$ which enable us to 
+	conclude theorems from the axioms.
+\end{definition}
+
+\begin{definition}[First-Order Theory]
+	A \df{first-order theory}\index{logic!first-order theory}, or 
+	simply a \df{theory}, is a formal system $T$ such that
+	\begin{enumerate}
+		\item[i)] the language of $T$ is a first-order language;
+		
+		\item[ii)] the axioms of $T$ are the logical axioms of 
+		$L(T)$ and certain further axioms called the \df{nonlogical 
+		axioms};
+		
+		\item[iii)] the rules of $T$ are the expansion rule, the 
+		contraction rule, the associative rule, the cut rule, and 
+		the $\exists$-introduction rule.
+	\end{enumerate}
+\end{definition}
+
+The logical axioms\index{logic!logical axioms} are the following:
+\begin{itemize}
+	\item Propositional axiom: $\propax$
+	
+	\item Substitution axiom: $\subax$
+	
+	\item Identity axiom: $\idax$
+	
+	\item Equality axiom: 
+	\[ \eqax \] or \[ \eqpredax \]
+\end{itemize}
+
+The rules are the following:
+\begin{itemize}
+	\item Expansion: Infer $\bt{B} \lor \bt{A}$ from \bt{A}.
+	
+	\item Contraction: Infer \bt{A} from $\bt{A} \lor \bt{A}$.
+	
+	\item Associative: Infer $(\bt{A} \lor \bt{B}) \lor \bt{C}$ 
+	from $\bt{A} \lor (\bt{B} \lor \bt{C})$.
+	
+	\item Cut: Infer $\bt{B} \lor \bt{C}$ from $\bt{A} \lor \bt{B}$ 
+	and $\neg \bt{A} \lor \bt{C}$.
+	
+	\item $\exists$-Introduction: If \bt{x} is not free in \bt{B}, 
+	infer $\existsx \bt{A} \ra \bt{B}$ from $\bt{A} \ra \bt{B}$.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Models of Theories}
+
+\begin{definition}[Model]
+	A \df{model}\index{logic!model} of a theory $T$ is a structure 
+	for $L(T)$ in which all the nonlogical axioms of $T$ are valid. 
+	A formula is \df{valid in $T$} if it is valid in every model of 
+	$T$; equivalently, if it is a logical consequence of the 
+	nonlogical axioms of $T$.
+\end{definition}
+
+\begin{example}[Elementary Theory of Groups, $G$]
+	The only nonlogical symbol of $G$ is the binary function symbol 
+	$\cdot$. The nonlogical axioms of $G$ are:
+	\begin{enumerate}
+		\item[G1.] $(x \cdot y) \cdot z = x \cdot (y \cdot z)$\,.
+		
+		\item[G2.] $\exists x (\forall y(x \cdot y = y) \land 
+		\forall y \exists z (z \cdot y = x))$\,.
+	\end{enumerate}
+	
+	A model of $G$ would be the set of invertible $2 \times 2$ 
+	matrices under matrix multiplication.
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Definitions Relevant to Theories}
+
+\begin{itemize}
+	\item A theory $T'$ is an \df{extension}\index{logic!extension 
+	of theory} of a theory $T$ if $L(T')$ is an extension of $L(T)$ 
+	and every theorem of $T$ is a theorem of $T'$. A 
+	\df{conservative extension} of $T$ is an extension $T'$ of $T$ 
+	such that every formula of $T$ which is a theorem of $T'$ is 
+	also a theorem of $T$. The theories	$T$ and $T'$ are 
+	\df{equivalent}\index{logic!equivalent theories} if each is an 
+	extension of the other, i.e., they have the same language and 
+	the same theorems.
+	
+	\item A theory $T$ is 
+	\df{inconsistent}\index{logic!inconsistent} if every formula of 
+	$T$ is a theorem of $T$; otherwise $T$ is 
+	\df{consistent}\index{logic!consistent}
+	
+	\item A formula \bt{A} of $T$ is 
+	\df{undecidable}\index{logic!undecidable} in $T$ if neither 
+	\bt{A} nor $\neg \bt{A}$ is a theorem of $T$; otherwise \bt{A} 
+	is \df{decidable}\index{logic!decidable} in $T$.
+	
+	\item A theory is \df{complete}\index{logic!complete} if it is 
+	consistent and if every closed formula in $T$ is decidable in 
+	$T$.
+	
+	\item A theory is \df{open}\index{logic!open theory} if all of 
+	its nonlogical axioms are open (do not contain quantifiers).
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Truth of Formulas of a Theory}
+
+\begin{definition}[Truth Valuation]
+	A \df{truth valuation}\index{logic!truth valuation for a 
+	theory}	for $T$ is a mapping from the set of elementary 
+	formulas in $T$ to the set of truth values.
+\end{definition}
+
+We define a truth value $V(\bt{A})$ for every formula \bt{A} by 
+induction:
+\begin{itemize}
+	\item If \bt{A} is elementary, then $V(\bt{A})$ is already 
+	defined;
+	
+	\item If \bt{A} is $\neg \bt{B}$, then $V(\bt{A}) = 
+	\Hneg{}(V(\bt{B}))$;
+	
+	\item If \bt{A} is $\lor \bt{B} \bt{C}$, then $V(\bt{A}) = 
+	\Hor{}(V(\bt{B}),V(\bt{C}))$.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Theorems in First-Order Theories}
+
+\begin{theorem}[Validity Theorem]
+	If $T$ is a theory, then every theorem of $T$ is valid in $T$.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{The Characterization Problem}
+
+\begin{definition}[Characterization Problem]
+	The \df{characterization problem}\index{logic!characterization 
+	problem} for a formal system $F$ is the following: find a 
+	necessary and sufficient condition that a formula of $F$ be a 
+	theorem of $F$.
+\end{definition}
+
+Remark: We consider the characterization problem for theories.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{The Reduction Theorem}
+
+Main Idea: To solve the characterization problem for all theories, 
+it suffices to solve it for theories with no nonlogical axioms.
+
+\begin{theorem}[Reduction Theorem]
+	Let $\Gamma$ be a set of formulas in the theory $T$, and let 
+	$A$ be a formula of $T$. Then \bt{A} is a theorem of 
+	$T[\Gamma]$ iff there is a theorem of $T$ of the form $\bt{B}_1 
+	\ra \dots \ra \bt{B}_n \ra \bt{A}$, where each $\bt{B}_i$ is 
+	the closure of a formula in $\Gamma$.
+\end{theorem}
+
+\begin{theorem}[Reduction Theorem for Consistency]
+	Let $\Gamma$ be a nonempty set of formulas in the theory $T$. 
+	Then $T[\Gamma]$ is inconsistent iff there is a theorem of $T$ 
+	which is a disjunction of negations of closures of distinct 
+	formulas in $\Gamma$.
+\end{theorem}
+
+\begin{corollary}
+	Let $\bt{A}'$ be the closure of \bt{A}. Then \bt{A} is a 
+	theorem of $Y$ iff $T[\neg \bt{A}']$ is inconsistent.
+\end{corollary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Solutions to the Characterization Problem}
+
+A trivial solution is that a formula is a theorem if and only if it 
+has a proof.
+
+\subsubsection{The Completeness Theorem}\index{logic!completeness 
+theorem}
+
+Main Idea: The completeness theorem, in either form, establishes an 
+equivalence between a syntactical concept and a semantical concept. 
+That is, it deals with concrete and abstract objects.
+
+\begin{theorem}[Completeness Theorem, First Form (G\"odel)]
+	A formula \bt{A} of a theory $T$ is a theorem of $T$ iff it is 
+	valid in $T$.
+\end{theorem}
+
+\begin{theorem}[Completeness Theorem, Second Form]
+	A theory $T$ is consistent iff it has a model.
+\end{theorem}
+
+The second form is proved using the concept of Henkin theories and 
+special constants. It is outlined below.
+
+\begin{definition}
+	A Henkin theory\index{logic!Henkin theory} is a theory such 
+	that each closed instantiation $\existsx \bt{A}$ of $T$, there 
+	is a constant \bt{e} such that \\ $\vdash_T \existsx \bt{A} \ra 
+	\bt{A}_\bt{x}[\bt{e}]$.
+\end{definition}
+
+One can extend any consistent theory to a Henkin theory by adding a 
+special constant\index{logic!special constant} $\bt{r} = c_{\existsx
+\bt{A}}$ for every case where $\existsx \bt{A}$ is a theorem, yet 
+there is no such \bt{e}. If \bt{r} is the special constant for 
+$\existsx \bt{A}$, then the formula $\existsx \bt{A} \ra 
+\bt{A}_\bt{x}[\bt{r}]$ is called the \df{special axiom for} 
+\bt{r}\index{logic!special axiom}. One can then extend this theory 
+to a complete Henkin theory, which one can prove has a model. After 
+showing that a theory has a model if its extension has a model, one 
+can conclude that the original theory has a model.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{The Consistency Theorem}
+
+Main Idea: The consistency theorem deals only with concrete objects 
+and is therefore finitary. Say we have a 
+model of an open theory. The completeness theorem gives a proof of 
+the consistency of the theory. The consistency theorem then allows 
+us to convert this into a finitary proof of the consistency of the 
+theory.
+
+We start with some necessary definitions.
+
+\begin{itemize}
+	\item A theory is \df{open}\index{logic!open theory} if all of 
+	its nonlogical axioms are open (do not contain quantifiers).
+	
+	\item A formula is a 
+	\df{quasi-tautology}\index{logic!quasi-tautolgy} if it is a 
+	tautological consequence of instances of identity axioms and 
+	equality axioms.
+\end{itemize}
+
+\begin{theorem}[The Consistency Theorem (Hilbert-Ackermann)]
+	An open theory $T$ is inconsistent if and only if there is a 
+	quasi-tautology which is a disjunction of negations of 
+	instances of nonlogical axioms of $T$.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Herbrand's Theorem}
+
+Main Idea: Herbrand's theorem is a finitary solution of the 
+characterization problem for all theories.
+
+\begin{theorem}[Herbrand's Theorem]
+	Let $T$ be a theory with no nonlogical axioms, and let \bt{A} 
+	be a closed formula in prenex form in $T$. Then \bt{A} is a 
+	theorem of $T$ if and only if there is a quasi-tautology which 
+	is a disjunction of instances of the matrix of $\bt{A}_H$.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Interpretations}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
